@@ -1,0 +1,9 @@
+{
+  "title":"Agent Atlas",
+  "subtitle":"Agent 技术完整知识树：从哪里来，当下在哪里，未来去哪里",
+  "language":"zh-CN",
+  "version":"0.1.0",
+  "cutoff":"2026-09-30",
+  "repository":"https://github.com/fomos-openai/agent-atlas",
+  "output":"artifacts/agent-atlas-book.zh-CN.pdf"
+}
