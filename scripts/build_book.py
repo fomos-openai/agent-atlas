@@ -10,17 +10,20 @@ from pypdf import PdfReader
 from reportlab.lib.colors import Color, HexColor, white
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.ttfonts import TTFont, TTFError
 from reportlab.pdfgen import canvas
 
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((ROOT / "book/book.yaml").read_text(encoding="utf-8"))
-OUTPUT = ROOT / CONFIG["output"]
+OUTPUT = Path(os.environ["AGENT_ATLAS_BOOK_OUTPUT"]) if os.environ.get(
+    "AGENT_ATLAS_BOOK_OUTPUT"
+) else ROOT / CONFIG["output"]
 W, H = A4
 FONT = "STSong-Light"
 FONT_CANDIDATES = (
     "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
     "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
     "/usr/share/fonts/opentype/noto/NotoSansCJKsc-Regular.otf",
 )
@@ -140,22 +143,29 @@ def topic_files(folders: tuple[str, ...]) -> list[Path]:
     return files
 
 
-def resolve_font() -> Path:
+def register_cjk_font() -> Path:
     configured = os.environ.get("AGENT_ATLAS_FONT")
     candidates = ((configured,) if configured else ()) + FONT_CANDIDATES
+    errors: list[str] = []
     for candidate in candidates:
         if candidate and Path(candidate).exists():
-            return Path(candidate)
+            try:
+                pdfmetrics.registerFont(
+                    TTFont(FONT, candidate, asciiReadable=True)
+                )
+                return Path(candidate)
+            except TTFError as exc:
+                errors.append(f"{candidate}: {exc}")
     raise RuntimeError(
-        "CJK font not found; install Noto Sans CJK or set AGENT_ATLAS_FONT to a TTF/TTC file"
+        "compatible CJK TrueType font not found; install WenQuanYi Zen Hei or set "
+        "AGENT_ATLAS_FONT to a TrueType-outline TTF/TTC file. Tried: " + "; ".join(errors)
     )
 
 
 def build() -> None:
-    font_path = resolve_font()
-    pdfmetrics.registerFont(TTFont(FONT, str(font_path), asciiReadable=True))
+    register_cjk_font()
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    c = canvas.Canvas(str(OUTPUT), pagesize=A4, pageCompression=1)
+    c = canvas.Canvas(str(OUTPUT), pagesize=A4, pageCompression=1, invariant=1)
     c.setTitle(CONFIG["title"])
     c.setAuthor("Agent Atlas Contributors")
     c.setSubject(CONFIG["subtitle"])
