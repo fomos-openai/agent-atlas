@@ -1,0 +1,9 @@
+[
+  {"id":"openai-agents-sdk","category":"framework","name":"OpenAI Agents SDK","maturity":"production","license":"MIT","source_id":"openai-agents-sdk"},
+  {"id":"google-adk","category":"framework","name":"Google Agent Development Kit","maturity":"production","license":"Apache-2.0","source_id":"google-adk-lifecycle"},
+  {"id":"langgraph","category":"framework","name":"LangGraph","maturity":"production","license":"MIT","source_id":"anthropic-effective-agents"},
+  {"id":"autogen","category":"framework","name":"Microsoft AutoGen","maturity":"evolving","license":"MIT","source_id":"anthropic-effective-agents"},
+  {"id":"mcp","category":"protocol","name":"Model Context Protocol","maturity":"production","license":"open-standard","source_id":"mcp-spec"},
+  {"id":"a2a","category":"protocol","name":"Agent2Agent Protocol","maturity":"evolving","license":"open-standard","source_id":"a2a-spec"},
+  {"id":"opentelemetry","category":"observability","name":"OpenTelemetry","maturity":"production","license":"Apache-2.0","source_id":"openai-agent-evals"}
+]

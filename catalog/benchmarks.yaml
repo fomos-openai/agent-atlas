@@ -1,0 +1,6 @@
+[
+  {"id":"agentbench","name":"AgentBench","domain":"multi-environment","measures":["task success","environment interaction"],"source_id":"agentbench","caveat":"聚合分数可能掩盖不同环境的失败模式。"},
+  {"id":"gaia","name":"GAIA","domain":"general-assistant","measures":["real-world question completion"],"source_id":"gaia","caveat":"答案正确不等同于过程安全或成本可控。"},
+  {"id":"webarena","name":"WebArena","domain":"web-navigation","measures":["task success"],"source_id":"webarena","caveat":"网站状态与浏览器实现会影响可复现性。"},
+  {"id":"swebench","name":"SWE-bench","domain":"software-engineering","measures":["resolved repository issues"],"source_id":"swebench","caveat":"基准污染、测试覆盖和环境配置需单独审计。"}
+]

@@ -1,0 +1,3 @@
+artifacts/*.pdf binary
+artifacts/*.png binary
+artifacts/*.html -diff

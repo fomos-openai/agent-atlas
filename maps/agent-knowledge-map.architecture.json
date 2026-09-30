@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Agent Atlas：从起源到未来",
+    "locale": "zh-CN",
+    "output": "artifacts/agent-knowledge-map.html",
+    "quality_profile": "showcase",
+    "views": [
+      {"id":"journey","label":"主线：从哪里来到哪里去","focus":["origins","mechanics","architectures","lifecycle","current","future"],"note":"沿能力演进进入生产系统，再用证据判断未来。"},
+      {"id":"assurance","label":"保证面","focus":["evaluation","security","lifecycle"],"note":"评测、安全和生命周期共同约束自主性。"},
+      {"id":"delivery","label":"落地路径","focus":["ecosystem","applications","practice"],"note":"从技术选择到场景与工程检查表。"}
+    ]
+  },
+  "components": [
+    {"id":"origins","type":"external","label":"01 起源","sublabel":"符号 Agent · RL · Foundation Models","pos":[40,280],"size":[150,72]},
+    {"id":"mechanics","type":"backend","label":"02 核心机制","sublabel":"Loop · Context · Memory · Tools","pos":[295,280],"size":[160,72]},
+    {"id":"architectures","type":"backend","label":"03 系统架构","sublabel":"Workflow · Single · Multi-Agent","pos":[525,280],"size":[160,72]},
+    {"id":"lifecycle","type":"cloud","label":"05 完整生命周期","sublabel":"Discover → Build → Operate → Retire","pos":[770,280],"size":[178,72]},
+    {"id":"current","type":"cloud","label":"10 2026 现状","sublabel":"受约束生产化早期","pos":[1025,280],"size":[158,72]},
+    {"id":"future","type":"external","label":"11 未来","sublabel":"Durable · Adaptive · Interoperable","pos":[1270,280],"size":[168,72]},
+    {"id":"interoperability","type":"messagebus","label":"04 互操作","sublabel":"MCP · A2A · Agent UI","pos":[525,90],"size":[160,70]},
+    {"id":"ecosystem","type":"database","label":"08 技术生态","sublabel":"Models · SDKs · Runtime · Infra","pos":[1025,90],"size":[158,70]},
+    {"id":"security","type":"security","label":"07 安全与治理","sublabel":"Identity · Policy · Human Control","pos":[525,470],"size":[160,72]},
+    {"id":"evaluation","type":"security","label":"06 评测","sublabel":"Outcome · Trajectory · Safety · Cost","pos":[770,470],"size":[178,72]},
+    {"id":"applications","type":"frontend","label":"09 应用","sublabel":"Code · Browser · Enterprise · Science","pos":[1025,470],"size":[158,72]},
+    {"id":"practice","type":"frontend","label":"12 工程实践","sublabel":"Blueprint · Checklist · Failure Atlas","pos":[1270,470],"size":[168,72]}
+  ],
+  "connections": [
+    {"id":"origin-to-mechanics","from":"origins","to":"mechanics","label":"思想进入通用模型","variant":"emphasis"},
+    {"id":"mechanics-to-architecture","from":"mechanics","to":"architectures","label":"能力组合","variant":"emphasis"},
+    {"id":"architecture-to-lifecycle","from":"architectures","to":"lifecycle","label":"进入工程闭环","variant":"emphasis"},
+    {"id":"lifecycle-to-current","from":"lifecycle","to":"current","label":"生产证据","variant":"emphasis"},
+    {"id":"current-to-future","from":"current","to":"future","label":"信号与情景","variant":"emphasis"},
+    {"id":"interop-to-architecture","from":"interoperability","to":"architectures","label":"连接工具与 Agent","fromSide":"bottom","toSide":"top"},
+    {"id":"ecosystem-to-current","from":"ecosystem","to":"current","label":"平台成熟度","fromSide":"bottom","toSide":"top"},
+    {"id":"architecture-to-security","from":"architectures","to":"security","label":"威胁与权限","variant":"security","fromSide":"bottom","toSide":"top"},
+    {"id":"security-to-evaluation","from":"security","to":"evaluation","label":"对抗验证","variant":"security"},
+    {"id":"evaluation-to-lifecycle","from":"evaluation","to":"lifecycle","label":"发布门禁","fromSide":"top","toSide":"bottom"},
+    {"id":"current-to-applications","from":"current","to":"applications","label":"已验证场景","fromSide":"bottom","toSide":"top"},
+    {"id":"applications-to-practice","from":"applications","to":"practice","label":"落地方法"},
+    {"id":"practice-to-future","from":"practice","to":"future","label":"运营反馈","variant":"dashed","fromSide":"top","toSide":"bottom"}
+  ],
+  "cards": [
+    {"dot":"cyan","title":"从哪里来","items":["经典 Agent 提供感知-行动框架","规划、RL 与 Foundation Models 汇合为 LLM Agent"]},
+    {"dot":"emerald","title":"当下阶段","items":["工具调用已成熟，可靠长任务仍在建设","生产重点转向状态、评测、权限与运营"]},
+    {"dot":"violet","title":"未来方向","items":["持久运行与开放互操作成为基础设施","自主性将随风险动态调整，而非无限扩大"]}
+  ]
+}
