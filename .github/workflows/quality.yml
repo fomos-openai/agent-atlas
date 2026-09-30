@@ -8,12 +8,23 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: sudo apt-get update && sudo apt-get install -y fonts-wqy-zenhei
-      - run: pip install reportlab==4.4.9 pypdf==6.10.0 pdfplumber==0.11.9
-      - run: AGENT_ATLAS_BOOK_OUTPUT=/tmp/agent-atlas-book.zh-CN.pdf make all
-      - run: git diff --exit-code
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "1.10.18"
+      - name: Install offline build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-jetbrains-mono poppler-utils
+          python -m pip install -r requirements-ci.txt
+      - name: Validate sources, labs, site and PDF
+        run: make all ARTIFACT_DIR=/tmp/agent-atlas-artifacts

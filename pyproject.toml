@@ -1,10 +1,13 @@
 [project]
 name = "agent-atlas"
-version = "0.1.0"
-description = "A source-backed knowledge atlas for AI agents"
+version = "0.2.0.dev0"
+description = "A source-backed engineering book and knowledge base for AI agents"
 requires-python = ">=3.12"
 license = {text = "MIT"}
 
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

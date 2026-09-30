@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "scenario", "risk_tier", "inputs", "outputs", "acceptance", "source_ids"],
+    "properties": {
+      "id": {"type": "string"},
+      "name": {"type": "string"},
+      "scenario": {"type": "string"},
+      "risk_tier": {"type": "string"},
+      "inputs": {"type": "array", "items": {"type": "string"}},
+      "outputs": {"type": "array", "items": {"type": "string"}},
+      "acceptance": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+      "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+    },
+    "additionalProperties": false
+  }
+}

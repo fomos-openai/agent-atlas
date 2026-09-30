@@ -1,8 +1,52 @@
 [
-  {"id":"agent-loop-definition","claim":"工程 Agent 的最小闭环是目标、决策、行动、观察与终止控制。","source_ids":["russell-norvig-aima","react"],"confidence":"high","status":"stable"},
-  {"id":"workflow-agent-distinction","claim":"Workflow 由预定义路径编排，Agent 则让模型动态决定过程与工具使用。","source_ids":["anthropic-effective-agents"],"confidence":"high","status":"stable"},
-  {"id":"eval-trajectory","claim":"Agent 评测必须检查过程轨迹、工具调用和状态变化，而不能只检查最终文本。","source_ids":["anthropic-evals","openai-agent-evals"],"confidence":"high","status":"evolving"},
-  {"id":"interop-split","claim":"MCP 主要连接 Agent 与工具/数据，A2A 主要连接独立 Agent 系统。","source_ids":["mcp-spec","a2a-spec"],"confidence":"high","status":"evolving"},
-  {"id":"security-expanded-surface","claim":"工具权限、长期记忆和外部内容使 Agent 的攻击面超出传统聊天模型。","source_ids":["owasp-agent-security","anthropic-trustworthy"],"confidence":"high","status":"evolving"},
-  {"id":"future-durable-runtime","claim":"未来 12-24 个月，长任务、可恢复状态与策略执行将从框架能力演进为基础设施能力。","source_ids":["mcp-spec","google-adk-lifecycle","openai-agents-sdk"],"confidence":"medium","status":"speculative","falsifiers":["主流平台继续只提供短请求且企业采用率不升","互操作任务扩展未形成实现生态"]}
+  {
+    "id": "agent-is-loop-not-model",
+    "claim": "工程 Agent 的最小语义是目标驱动的决策—行动—观察闭环，而不是某个特定模型或 SDK。",
+    "claim_type": "fact",
+    "source_ids": ["aima-4e", "react-2023", "openai-running-agents-2026"],
+    "confidence": "high",
+    "status": "stable",
+    "as_of": "2026-10-01",
+    "falsifiers": []
+  },
+  {
+    "id": "workflow-agent-control-path",
+    "claim": "Workflow 预先固定控制路径，Agent 把部分过程选择交给模型；两者可以组合而非互斥。",
+    "claim_type": "fact",
+    "source_ids": ["anthropic-effective-agents"],
+    "confidence": "high",
+    "status": "stable",
+    "as_of": "2026-10-01",
+    "falsifiers": []
+  },
+  {
+    "id": "tools-are-aci",
+    "claim": "工具定义同时是程序接口、权限边界和面向模型的交互界面，不能只按普通函数封装。",
+    "claim_type": "inference",
+    "source_ids": ["anthropic-effective-agents", "anthropic-tool-writing", "owasp-agent-security-2026"],
+    "confidence": "high",
+    "status": "evolving",
+    "as_of": "2026-10-01",
+    "falsifiers": ["跨模型实验显示工具命名、参数形状和错误语义不影响任务成功率"]
+  },
+  {
+    "id": "side-effects-policy-boundary",
+    "claim": "具有外部副作用的工具必须在执行边界进行独立策略判定，不能仅依赖提示词或最终输出检查。",
+    "claim_type": "fact",
+    "source_ids": ["openai-guardrails-2026", "owasp-agent-security-2026"],
+    "confidence": "high",
+    "status": "evolving",
+    "as_of": "2026-10-01",
+    "falsifiers": []
+  },
+  {
+    "id": "trace-over-final-text",
+    "claim": "Agent 评测需要检查工具选择、参数、状态变化和终止行为，不能只比较最终文本。",
+    "claim_type": "fact",
+    "source_ids": ["openai-agent-evals-2026"],
+    "confidence": "high",
+    "status": "evolving",
+    "as_of": "2026-10-01",
+    "falsifiers": []
+  }
 ]

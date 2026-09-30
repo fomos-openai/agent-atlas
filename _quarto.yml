@@ -1,0 +1,62 @@
+project:
+  type: book
+  output-dir: _site
+
+book:
+  title: "Agent Atlas"
+  subtitle: "Agent 工程技术专著：从范式源流到生产系统"
+  author: "Agent Atlas Contributors"
+  date: "2026-10-01"
+  language: zh-CN
+  output-file: agent-atlas-book.zh-CN
+  repo-url: https://github.com/fomos-openai/agent-atlas
+  repo-actions: [edit, issue]
+  search: true
+  downloads: [pdf]
+  chapters:
+    - index.qmd
+    - content/00-reading-guide/index.qmd
+    - part: "第一篇：范式与基础"
+      chapters:
+        - content/01-foundations/02-paradigm-evolution.qmd
+    - part: "第二篇：从零理解核心机制"
+      chapters:
+        - content/02-core-mechanics/06-tools-contracts-and-execution.qmd
+    - content/references.qmd
+
+bibliography: catalog/references.bib
+lang: zh-CN
+number-depth: 3
+toc-depth: 3
+crossref:
+  fig-title: "图"
+  tbl-title: "表"
+  lst-title: "代码"
+  sec-prefix: "节"
+  fig-prefix: "图"
+  tbl-prefix: "表"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles/atlas.scss
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    link-external-newwindow: true
+  typst:
+    papersize: iso-b5
+    fontsize: 10.5pt
+    mainfont: "Noto Serif CJK SC"
+    sansfont: "Noto Sans CJK SC"
+    monofont: "JetBrains Mono"
+    toc: true
+    keep-typ: true
+    pdf-standard: ua-2
+
+execute:
+  enabled: false
+
+metadata-files:
+  - _brand.yml

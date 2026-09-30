@@ -1,14 +1,8 @@
 [
-  {"term":"Agent","zh":"智能体","definition":"在约束内自主选择步骤并通过工具作用于环境，以完成目标的系统。"},
-  {"term":"Agentic system","zh":"智能体式系统","definition":"包含 workflow 与 agent 的广义系统集合。"},
-  {"term":"Workflow","zh":"工作流","definition":"由代码、图或规则预先规定控制路径的执行系统。"},
-  {"term":"Tool","zh":"工具","definition":"向 Agent 暴露的可调用能力，可能只读、计算或产生外部副作用。"},
-  {"term":"Trajectory","zh":"轨迹","definition":"一次运行中的模型调用、工具调用、状态变化、交接与输出序列。"},
-  {"term":"Handoff","zh":"交接","definition":"把当前任务控制权及必要上下文转交给另一专门 Agent。"},
-  {"term":"Guardrail","zh":"护栏","definition":"在输入、输出或工具边界执行的自动验证、阻断或修正控制。"},
-  {"term":"Human-in-the-loop","zh":"人在回路","definition":"在决策、审批、异常处置或质量复核中保留人的控制。"},
-  {"term":"MCP","zh":"模型上下文协议","definition":"用于连接 AI 应用与外部工具、资源和上下文的开放协议。"},
-  {"term":"A2A","zh":"Agent 到 Agent 协议","definition":"用于独立、可能不透明的 Agent 系统之间发现与协作的开放协议。"},
-  {"term":"Durable execution","zh":"持久执行","definition":"运行可等待、暂停、持久化并从确定状态恢复的执行方式。"},
-  {"term":"Context engineering","zh":"上下文工程","definition":"为当前决策选择、压缩、组织和隔离上下文的系统工程。"}
+  {"term": "agent", "zh": "智能体", "definition": "在目标、状态、预算和权限约束下，通过选择行动与环境交互并根据观察继续决策的软件系统。"},
+  {"term": "workflow", "zh": "工作流", "definition": "由程序预先确定控制路径、分支和终止条件的执行图。"},
+  {"term": "tool", "zh": "工具", "definition": "向模型暴露的、具有结构化输入输出及明确权限语义的环境能力。"},
+  {"term": "trajectory", "zh": "轨迹", "definition": "一次运行中可审计的模型决策、工具调用、观察、状态变化和终止结果序列。"},
+  {"term": "guardrail", "zh": "护栏", "definition": "在输入、输出或工具边界执行的自动检查；它与人工审批承担不同控制职责。"},
+  {"term": "affordance", "zh": "可供性", "definition": "接口形状向使用者表达可采取动作及其约束的能力；在 Agent 中使用者可能是模型。"}
 ]

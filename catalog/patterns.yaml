@@ -1,0 +1,4 @@
+[
+  {"id": "deterministic-shell", "name": "Deterministic shell, model-selected step", "problem": "任务包含少量需要语义判断的步骤，但权限、预算和终止必须确定。", "forces": ["flexibility", "auditability", "cost", "blast-radius"], "solution": "由确定性运行时维护状态与策略，只允许模型从声明式动作集合中选择下一步。", "consequences": ["行为可审计", "需要显式工具契约", "自由度低于开放式代理"], "source_ids": ["anthropic-effective-agents", "openai-running-agents-2026"]},
+  {"id": "policy-enforced-tool-gateway", "name": "Policy-enforced tool gateway", "problem": "模型可能请求高影响或越权动作。", "forces": ["least-privilege", "human-review", "latency"], "solution": "在工具执行前根据调用身份、参数和副作用等级返回 allow、deny 或 require_approval。", "consequences": ["策略独立于模型", "审批可恢复", "必须保护策略与凭据"], "source_ids": ["openai-guardrails-2026", "owasp-agent-security-2026"]}
+]

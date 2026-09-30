@@ -1,15 +1,23 @@
-# 贡献指南
+# Contributing
 
-Agent Atlas 接受事实修正、新技术条目、案例、评测数据与最小实验。提交内容必须回答：它解决什么问题、证据是什么、适用边界是什么、何时需要重新核验。
+## Writing contract
 
-## 内容约定
+Every numbered chapter must include learning objectives, prerequisites, the engineering problem, historical or architectural context, a mechanism-level explanation, at least one figure, one trade-off table, one worked example, failure modes, production constraints, a checklist, exercises, and source-backed references.
 
-1. 知识页必须包含 `title`、`summary`、`status`、`last_verified`、`source_ids`、`tags` front matter。
-2. `status` 只能为 `stable`、`evolving`、`experimental` 或 `speculative`。
-3. 事实优先引用论文、正式规范和官方文档；厂商比较不得把营销声明当成独立证据。
-4. 推断必须明确写出依据、置信度和可能推翻它的信号。
-5. 示例默认离线、确定性、无需 API Key；真实模型适配必须是可选项。
+Chapter front matter must provide:
 
-## 本地检查
+`title`, `summary`, `part`, `chapter`, `status`, `as_of`, `prerequisites`, `learning_objectives`, `source_ids`, `labs`, `figures`, and `tags`.
 
-运行 `make all`。如改动地图，使用 `maps/README.md` 中固定的 Archify 流程重新 finalize；如改动书稿或知识页，重新生成并逐页检查 PDF。
+Allowed status values are `stable`, `evolving`, `experimental`, and `speculative`.
+
+## Evidence contract
+
+- Register a source before citing it.
+- Prefer papers, specifications, official documentation, official repositories and release notes.
+- Record facts, inferences and scenarios separately.
+- Quantitative claims must include measurement conditions.
+- Do not reproduce hidden chain-of-thought. Store only inputs, outputs, decisions, tool calls, state transitions and auditable events.
+
+## Verification
+
+Run `make all`. When a PDF changes, also inspect the complete rendered page set produced by `make visual-check`. When an Archify diagram changes, rerun its showcase `finalize` workflow and inspect the requested captures.

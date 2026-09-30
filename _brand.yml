@@ -1,0 +1,24 @@
+meta:
+  name: Agent Atlas
+color:
+  palette:
+    ink: "#152033"
+    slate: "#5B6B7D"
+    cyan: "#16B8D4"
+    teal: "#0D9488"
+    violet: "#7157E8"
+    paper: "#F6F8FB"
+  foreground: ink
+  background: paper
+  primary: teal
+typography:
+  fonts:
+    - family: Noto Sans CJK SC
+      source: system
+    - family: Noto Serif CJK SC
+      source: system
+    - family: JetBrains Mono
+      source: system
+  base: Noto Serif CJK SC
+  headings: Noto Sans CJK SC
+  monospace: JetBrains Mono

@@ -1,1 +1,17 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"array","items":{"type":"object","required":["id","name","domain","measures","source_id","caveat"]}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "domain", "measures", "source_ids", "caveat"],
+    "properties": {
+      "id": {"type": "string"},
+      "name": {"type": "string"},
+      "domain": {"type": "string"},
+      "measures": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+      "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+      "caveat": {"type": "string", "minLength": 12}
+    },
+    "additionalProperties": false
+  }
+}

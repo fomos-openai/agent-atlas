@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-atlas.dev/contracts/model-request.schema.json",
+  "type": "object",
+  "required": ["messages", "tools", "state_version"],
+  "properties": {
+    "messages": {"type": "array", "items": {"$ref": "common.schema.json#/$defs/message"}},
+    "tools": {"type": "array", "items": {"$ref": "tool.schema.json#/$defs/toolSpec"}},
+    "state_version": {"type": "integer", "minimum": 0}
+  },
+  "additionalProperties": false
+}

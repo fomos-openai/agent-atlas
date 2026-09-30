@@ -1,8 +1,11 @@
 # Changelog
 
-## [Unreleased]
+## Unreleased - v2 foundation
 
-## [0.1.0] - 2026-09-30
+- Replace the unmerged v1 card-style manuscript with a single-source Quarto book and searchable knowledge site.
+- Establish the six-part, twenty-seven-chapter editorial architecture for the 2026-10-01 snapshot.
+- Add two review-quality sample chapters, two deterministic labs, evidence schemas, and an auditable build pipeline.
+- Separate MIT-licensed code from CC BY 4.0 prose and original figures.
+- Record the toolchain gap that Quarto 1.10.18 + Typst emits tagged PDF but does not yet honor `pdf-standard: ua-2`; formal conformance remains a release gate.
 
-- 建立覆盖历史、机制、架构、互操作、生命周期、评测、安全、生态、应用、现状、未来与实践的知识树。
-- 增加结构化来源目录、五个离线实验、Archify 交互地图与 PDF 小书。
+The v1 pull request was never released from `main`; v2 deliberately does not preserve its shallow content paths.

@@ -1,0 +1,3 @@
+[
+  {"id": "enterprise-change-intelligence", "name": "企业技术情报与变更决策 Agent", "scenario": "基于 RFC、ADR、服务目录、事故记录和依赖公告生成可审阅变更方案。", "risk_tier": "high-impact-draft-only", "inputs": ["RFC", "ADR", "service-catalog", "incident-records", "dependency-advisories"], "outputs": ["evidence-graph", "impact-analysis", "risk-register", "change-proposal"], "acceptance": ["每个关键结论可追溯", "写操作必须审批", "不得直接修改生产系统"], "source_ids": ["anthropic-effective-agents", "openai-guardrails-2026", "owasp-agent-security-2026"]}
+]

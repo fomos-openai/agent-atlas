@@ -1,46 +1,64 @@
 # Agent Atlas
 
-[![Knowledge cutoff](https://img.shields.io/badge/knowledge-2026--09--30-14b8a6)](./knowledge/10-current-state/2026-snapshot.md)
-[![Language](https://img.shields.io/badge/language-%E4%B8%AD%E6%96%87%20%2B%20English-6366f1)](./knowledge/00-orientation/glossary.md)
-[![License](https://img.shields.io/badge/license-MIT-f59e0b)](./LICENSE)
+[![Agent Atlas 2026 工程知识地图](./artifacts/agent-knowledge-map.png)](./artifacts/agent-knowledge-map.html)
 
-[![Agent 技术知识地图](./artifacts/agent-knowledge-map.png)](./artifacts/agent-knowledge-map.html)
+[交互知识地图](./artifacts/agent-knowledge-map.html) · [PDF 样书](./artifacts/agent-atlas-book.zh-CN.pdf)
 
-> 一张从智能体思想源流，到 2026 年工程现状，再到未来 3-5 年开放问题的可审计知识地图。
+> 面向资深后端工程师与技术管理者的 Agent 工程技术专著：从范式源流，到系统架构，再到生产生命周期。
 
-**[打开交互知识地图](./artifacts/agent-knowledge-map.html)** · **[下载《Agent Atlas》PDF 小书](./artifacts/agent-atlas-book.zh-CN.pdf)** · **[进入知识树](./knowledge/README.md)**
+**知识截止：2026-10-01** · **阶段：v2 foundation 样章审核** · **中文主文 + English terms**
 
-## 三条阅读主线
+Agent Atlas v2 不再把知识点压缩成“一主题一页”的索引卡。`content/` 是 HTML 知识站和 PDF 专著的唯一正文源；`labs/` 提供可离线复现的实验；`catalog/` 保存可审计的来源、主张、技术和案例数据。
 
-| 主线 | 回答的问题 | 入口 |
+## 当前审核包
+
+第一阶段只交付目录、构建系统和两篇完整样章，作为批量写作前的质量门：
+
+- [样章：从符号主义、BDI、规划和强化学习到 LLM Agent](./content/01-foundations/02-paradigm-evolution.qmd)
+- [样章：工具契约、结构化交互、动态发现与代码执行](./content/02-core-mechanics/06-tools-contracts-and-execution.qmd)
+- [实验 01：最小可审计运行循环](./labs/python/stages/01-auditable-loop/README.md)
+- [实验 02：带策略判定的工具网关](./labs/python/stages/02-secure-tool-gateway/README.md)
+- [Agent Atlas PDF 样书](./artifacts/agent-atlas-book.zh-CN.pdf)
+- [交互式知识地图](./artifacts/agent-knowledge-map.html)
+
+样章审核通过后，才按六篇二十七章的目录继续扩写。
+
+## 内容结构
+
+| 篇 | 回答的问题 | 章节范围 |
 |---|---|---|
-| 从哪里来 | Agent 为什么会从符号智能、规划、强化学习演进到 LLM Agent？ | [历史与里程碑](./knowledge/01-origins/README.md) |
-| 当下在哪里 | 可靠 Agent 由哪些能力、架构、协议和工程生命周期组成？ | [核心机制](./knowledge/02-core-mechanics/README.md) · [2026 快照](./knowledge/10-current-state/2026-snapshot.md) |
-| 未来去哪里 | 自主性、互操作、持续学习和治理会如何演进？ | [未来与开放问题](./knowledge/11-future/README.md) |
+| 范式与基础 | Agent 从哪里来，哪些思想真正延续到了今天？ | 1-4 |
+| 核心机制 | 工具、状态、上下文、记忆与环境如何组成闭环？ | 5-9 |
+| 工程架构 | Workflow、单 Agent、多 Agent、持久运行和协议如何选型？ | 10-14 |
+| 生产工程 | 如何发现、评测、保护、部署和运营 Agent？ | 15-19 |
+| 完整案例 | 如何把原理落到可审计的企业系统？ | 20-23 |
+| 当下与未来 | 2026 技术栈处于什么阶段，未来信号是什么？ | 24-27 |
 
-## 这不是一份工具清单
+完整目录和阶段状态见 [content/README.md](./content/README.md)。
 
-Agent Atlas 将 Agent 视为一个受约束的闭环系统：模型根据目标和状态选择行动，通过工具改变环境，观察结果并决定继续、暂停、求助或终止。仓库把概念、工程实践和证据拆成三层：
-
-- `knowledge/`：面向人的知识树与工程指南；
-- `catalog/`：机器可读的来源、主张、术语、时间线、技术与 Benchmark；
-- `examples/`：不依赖 API Key 的最小可运行实验。
-
-## 快速开始
+## 本地验证
 
 ```bash
-make validate   # 内容、目录、引用、时效与内部链接
-make examples   # 运行五个离线 Agent 实验
-make book       # 生成 PDF 小书
-make all        # 完整验收
+make validate       # 目录、元数据、来源、引用、链接和时效
+make labs           # Python 与 TypeScript 离线实验
+make figures        # 校验图源与已发布图
+make site           # 生成可搜索 HTML 书站
+make book           # 生成 Typst PDF
+make visual-check   # 渲染全部 PDF 页面并执行结构检查
+make all            # 完整质量门
 ```
 
-建议先阅读[定义与边界](./knowledge/00-orientation/definitions-and-boundaries.md)，再按[角色化阅读路径](./knowledge/00-orientation/reading-paths.md)进入所需深度。
+文档构建固定使用 Quarto 1.10.18 与内置 Typst。默认实验不访问网络、不读取 API Key；真实模型适配器将在后续阶段作为可选依赖加入。
 
-## 证据与时效
+Foundation 样书已具备 Tagged PDF、可搜索文本、书签和可点击引用。正式 `PDF/UA-2` 一致性认证仍是 release 门：Quarto 1.10.18 的 Typst 路径会明确忽略 `pdf-standard: ua-2`，因此本阶段不把“Tagged”冒充为“已通过 PDF/UA-2”。
 
-首版知识截止日期为 **2026-09-30**。论文、协议规范、官方文档与发布记录优先；趋势判断必须区分事实、推断与情景。高时效页面包含 `last_verified` 元数据，超过 90 天会被检查器提示。详见 [catalog/README.md](./catalog/README.md)。
+## 证据与更新
 
-## 贡献
+- 稳定原理优先引用论文和经典教材。
+- 高时效能力只引用正式规范、官方文档、官方仓库和发布记录。
+- 事实、推断和情景在 `catalog/claims.yaml` 中分开记录。
+- 技术雷达与厂商能力 30 天复核；协议、框架与安全 90 天复核；稳定理论 365 天复核。
 
-新增技术前请先登记来源与可验证主张；不要只添加产品名。贡献流程、质量门禁与写作约定见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+## 许可证
+
+代码采用 [MIT](./LICENSE)；正文、图表与原创教学材料采用 [CC BY 4.0](./LICENSE-CONTENT)。第三方资料只做必要引用与原创转述，详见 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)。

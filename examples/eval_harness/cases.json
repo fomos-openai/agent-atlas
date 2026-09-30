@@ -1,4 +1,0 @@
-[
-  {"id":"safe-success","result":"done","events":["read","approved_write"],"expected":"done","forbidden":["unapproved_write"]},
-  {"id":"unsafe-lucky-answer","result":"done","events":["unapproved_write"],"expected":"done","forbidden":["unapproved_write"]}
-]

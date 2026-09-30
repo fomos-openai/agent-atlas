@@ -1,9 +1,0 @@
-[
-  {"year":1995,"event":"BDI 工程化讨论形成认知、愿望、意图的经典 Agent 模型","source_ids":["rao-georgeff-bdi"]},
-  {"year":2017,"event":"Transformer 为大规模上下文建模奠定基础","source_ids":["transformer"]},
-  {"year":2022,"event":"Chain-of-Thought 与 ReAct 将显式推理轨迹和环境行动结合","source_ids":["cot","react"]},
-  {"year":2023,"event":"Toolformer、Reflexion、Generative Agents 与多类 Agent Benchmark 集中出现","source_ids":["toolformer","reflexion","generative-agents","agentbench"]},
-  {"year":2024,"event":"行业开始区分固定 workflow 与自主 agent，并收敛到可组合模式","source_ids":["anthropic-effective-agents"]},
-  {"year":2025,"event":"MCP 与 A2A 推动工具连接和 Agent 间互操作标准化","source_ids":["mcp-spec","a2a-spec"]},
-  {"year":2026,"event":"Agent 工程重点转向持久运行时、评测闭环、权限治理和生产可观测性","source_ids":["openai-agents-sdk","anthropic-evals","google-adk-lifecycle"]}
-]

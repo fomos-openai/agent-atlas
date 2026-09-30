@@ -1,9 +1,5 @@
 [
-  {"id":"openai-agents-sdk","category":"framework","name":"OpenAI Agents SDK","maturity":"production","license":"MIT","source_id":"openai-agents-sdk"},
-  {"id":"google-adk","category":"framework","name":"Google Agent Development Kit","maturity":"production","license":"Apache-2.0","source_id":"google-adk-lifecycle"},
-  {"id":"langgraph","category":"framework","name":"LangGraph","maturity":"production","license":"MIT","source_id":"anthropic-effective-agents"},
-  {"id":"autogen","category":"framework","name":"Microsoft AutoGen","maturity":"evolving","license":"MIT","source_id":"anthropic-effective-agents"},
-  {"id":"mcp","category":"protocol","name":"Model Context Protocol","maturity":"production","license":"open-standard","source_id":"mcp-spec"},
-  {"id":"a2a","category":"protocol","name":"Agent2Agent Protocol","maturity":"evolving","license":"open-standard","source_id":"a2a-spec"},
-  {"id":"opentelemetry","category":"observability","name":"OpenTelemetry","maturity":"production","license":"Apache-2.0","source_id":"openai-agent-evals"}
+  {"id": "openai-agents-sdk", "name": "OpenAI Agents SDK", "layer": "sdk-framework", "maturity": "production", "version": "current-2026-10-01", "languages": ["Python", "TypeScript"], "license": "open-source", "deployment_model": "application-owned-runtime", "source_ids": ["openai-agents-sdk-2026"], "last_verified": "2026-10-01"},
+  {"id": "mcp", "name": "Model Context Protocol", "layer": "protocol", "maturity": "production", "version": "2026-07-28", "languages": ["language-neutral"], "license": "open-standard", "deployment_model": "client-server", "source_ids": ["mcp-2026-07-28"], "last_verified": "2026-10-01"},
+  {"id": "quarto", "name": "Quarto", "layer": "publishing", "maturity": "production", "version": "1.10.18", "languages": ["Markdown", "Typst"], "license": "GPL-2.0", "deployment_model": "static-build", "source_ids": ["quarto-books-2026"], "last_verified": "2026-10-01"}
 ]
