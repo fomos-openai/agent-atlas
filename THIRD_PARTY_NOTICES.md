@@ -1,5 +1,12 @@
 # Third-party notices
 
-- Archify is used to generate the interactive knowledge map. Archify is MIT licensed and based on Cocoon-AI's architecture diagram generator.
-- ReportLab, pypdf and pdfplumber are used by the PDF build and verification workflow under their respective licenses.
-- Product and project names appearing in the knowledge base belong to their respective owners. Inclusion is descriptive and does not imply endorsement.
+Agent Atlas is an original work. External tutorials, papers, specifications and official documentation are cited as evidence and are not redistributed as chapters.
+
+## Editorial and technical references
+
+- Datawhale `hello-agents` is used as an editorial reference for a theory-to-practice learning path. Its text and illustrations are not copied.
+- Quarto and Typst are used to build the HTML and PDF editions under their respective upstream licenses.
+- Archify is used to author interactive diagrams under the MIT license.
+- Noto CJK and JetBrains Mono are runtime fonts supplied by the build environment under their upstream licenses.
+
+Every external factual source used by the manuscript is registered in `catalog/sources.yaml` with a stable identifier and access date.

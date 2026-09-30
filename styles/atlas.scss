@@ -1,0 +1,39 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Noto Sans CJK SC", system-ui, sans-serif;
+$font-family-monospace: "JetBrains Mono", ui-monospace, monospace;
+$body-color: #152033;
+$body-bg: #f8fafc;
+$link-color: #0d9488;
+$code-bg: #eef3f7;
+
+/*-- scss:rules --*/
+body {
+  line-height: 1.78;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.015em;
+}
+
+.chapter-synopsis {
+  border-left: 0.3rem solid #16b8d4;
+  background: #eef9fc;
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.decision-record {
+  border: 1px solid #cfdbe5;
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 1rem 1.2rem;
+}
+
+table {
+  font-size: 0.94rem;
+}
+
+figcaption {
+  color: #5b6b7d;
+  font-size: 0.9rem;
+}

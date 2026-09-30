@@ -1,1 +1,22 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"array","items":{"type":"object","required":["id","title","url","publisher","published","accessed","kind","tags"]}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Atlas source catalog",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "title", "url", "publisher", "published", "accessed", "kind", "authority", "volatility", "tags"],
+    "properties": {
+      "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]+$"},
+      "title": {"type": "string", "minLength": 3},
+      "url": {"type": "string", "format": "uri"},
+      "publisher": {"type": "string"},
+      "published": {"type": "string", "format": "date"},
+      "accessed": {"type": "string", "format": "date"},
+      "kind": {"type": "string"},
+      "authority": {"enum": ["primary", "authoritative", "secondary"]},
+      "volatility": {"enum": ["fast", "evolving", "stable"]},
+      "tags": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+    },
+    "additionalProperties": false
+  }
+}

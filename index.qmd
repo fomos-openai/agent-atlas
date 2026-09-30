@@ -1,0 +1,7 @@
+---
+title: "Agent Atlas"
+subtitle: "Agent 工程技术专著：从范式源流到生产系统"
+page-layout: full
+---
+
+{{< include content/index-body.md >}}

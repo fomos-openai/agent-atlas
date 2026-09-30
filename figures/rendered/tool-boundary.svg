@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+<title id="title">工具调用的系统边界</title><desc id="desc">五份契约把概率决策与真实环境隔开</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071426"/><stop offset="1" stop-color="#13263b"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity=".22"/></filter></defs>
+<rect width="1200" height="680" rx="28" fill="url(#bg)"/>
+<text x="64" y="66" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#f8fafc">工具调用的系统边界</text>
+<text x="64" y="100" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" fill="#94a3b8">五份契约把概率决策与真实环境隔开</text>
+<g filter="url(#s)"><rect x="50" y="255" width="180" height="112" rx="16" fill="#10243a" stroke="#a78bfa" stroke-width="2"/>
+<rect x="50" y="255" width="8" height="112" rx="4" fill="#a78bfa"/>
+<text x="74" y="293" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">模型</text>
+<text x="74" y="323" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">提出 ToolCall</text></g><g filter="url(#s)"><rect x="270" y="255" width="180" height="112" rx="16" fill="#10243a" stroke="#38bdf8" stroke-width="2"/>
+<rect x="270" y="255" width="8" height="112" rx="4" fill="#38bdf8"/>
+<text x="294" y="293" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">运行时</text>
+<text x="294" y="323" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">校验 · 预算 · 状态</text></g><g filter="url(#s)"><rect x="510" y="255" width="180" height="112" rx="16" fill="#10243a" stroke="#fb7185" stroke-width="2"/>
+<rect x="510" y="255" width="8" height="112" rx="4" fill="#fb7185"/>
+<text x="534" y="293" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">策略网关</text>
+<text x="534" y="323" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">授权 · 审批</text></g><g filter="url(#s)"><rect x="750" y="255" width="180" height="112" rx="16" fill="#10243a" stroke="#f59e0b" stroke-width="2"/>
+<rect x="750" y="255" width="8" height="112" rx="4" fill="#f59e0b"/>
+<text x="774" y="293" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">隔离执行器</text>
+<text x="774" y="323" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">超时 · 幂等 · 沙箱</text></g><g filter="url(#s)"><rect x="970" y="255" width="180" height="112" rx="16" fill="#10243a" stroke="#34d399" stroke-width="2"/>
+<rect x="970" y="255" width="8" height="112" rx="4" fill="#34d399"/>
+<text x="994" y="293" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">外部系统</text>
+<text x="994" y="323" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">真实副作用</text></g><path d="M230 311 L256 311" stroke="#60a5fa" stroke-width="3" fill="none"/><path d="M250 303 L270 311 L250 319" fill="none" stroke="#60a5fa" stroke-width="3"/>
+<text x="250" y="299" text-anchor="middle" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#93c5fd">提议</text><path d="M450 311 L496 311" stroke="#60a5fa" stroke-width="3" fill="none"/><path d="M490 303 L510 311 L490 319" fill="none" stroke="#60a5fa" stroke-width="3"/>
+<text x="480" y="299" text-anchor="middle" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#93c5fd">判定</text><path d="M690 311 L736 311" stroke="#60a5fa" stroke-width="3" fill="none"/><path d="M730 303 L750 311 L730 319" fill="none" stroke="#60a5fa" stroke-width="3"/>
+<text x="720" y="299" text-anchor="middle" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#93c5fd">授权</text><path d="M930 311 L956 311" stroke="#60a5fa" stroke-width="3" fill="none"/><path d="M950 303 L970 311 L950 319" fill="none" stroke="#60a5fa" stroke-width="3"/>
+<text x="950" y="299" text-anchor="middle" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#93c5fd">执行</text><g filter="url(#s)"><rect x="420" y="470" width="360" height="100" rx="16" fill="#10243a" stroke="#64748b" stroke-width="2"/>
+<rect x="420" y="470" width="8" height="100" rx="4" fill="#64748b"/>
+<text x="444" y="508" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">审计轨迹与状态存储</text>
+<text x="444" y="538" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">事件、检查点、结果与策略版本</text></g><path d="M360 370 Q360 430 520 470" stroke="#64748b" stroke-width="2" stroke-dasharray="7 6" fill="none"/><path d="M600 370 Q600 430 520 470" stroke="#64748b" stroke-width="2" stroke-dasharray="7 6" fill="none"/><path d="M840 370 Q840 430 520 470" stroke="#64748b" stroke-width="2" stroke-dasharray="7 6" fill="none"/><text x="600" y="190" text-anchor="middle" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="18" fill="#e2e8f0">提议权 ≠ 授权权 ≠ 效果权</text>
+<text x="1136" y="652" text-anchor="end" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#64748b">Agent Atlas · 2026-10-01</text>
+</svg>

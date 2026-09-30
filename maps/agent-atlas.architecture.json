@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Agent Atlas：2026 Agent 工程知识地图",
+    "subtitle": "从范式源流，经核心机制与工程架构，走向生产系统和可验证未来",
+    "locale": "zh-CN",
+    "output": "artifacts/agent-knowledge-map.html",
+    "quality_profile": "showcase",
+    "visual_preset": "editorial"
+  },
+  "components": [
+    {"id": "reader", "type": "external", "label": "技术专家", "sublabel": "后端 / 架构 / 研发管理", "pos": [40, 245], "size": [165, 74]},
+    {"id": "orientation", "type": "frontend", "label": "阅读指南", "sublabel": "边界 · 路线 · 成熟度", "pos": [270, 245], "size": [180, 74]},
+    {"id": "foundations", "type": "backend", "label": "I  范式与基础", "sublabel": "符号 · BDI · RL · LLM", "pos": [520, 245], "size": [190, 74], "tag": "Ch 1–4"},
+    {"id": "mechanics", "type": "backend", "label": "II  核心机制", "sublabel": "循环 · 工具 · 记忆 · 规划", "pos": [790, 245], "size": [205, 74], "tag": "Ch 5–9"},
+    {"id": "architectures", "type": "cloud", "label": "III  工程架构", "sublabel": "单体 · 多体 · 持久执行", "pos": [1065, 245], "size": [210, 74], "tag": "Ch 10–14"},
+    {"id": "production", "type": "cloud", "label": "IV  生产生命周期", "sublabel": "设计 · 评测 · 安全 · SRE", "pos": [1065, 465], "size": [210, 74], "tag": "Ch 15–19"},
+    {"id": "cases", "type": "messagebus", "label": "V  完整工程案例", "sublabel": "情报 · Coding · Research · Browser", "pos": [790, 465], "size": [205, 74], "tag": "Ch 20–23"},
+    {"id": "frontier", "type": "external", "label": "VI  2026 与未来", "sublabel": "Agentic RL · 雷达 · 情景", "pos": [520, 465], "size": [190, 74], "tag": "Ch 24–27"},
+    {"id": "evidence", "type": "database", "label": "证据层", "sublabel": "来源 · 主张 · 版本 · 时效", "pos": [270, 650], "size": [180, 74]},
+    {"id": "labs", "type": "backend", "label": "12 个离线实验", "sublabel": "Python 主线 · TypeScript 对照", "pos": [520, 650], "size": [190, 74]},
+    {"id": "evaluation", "type": "security", "label": "评测与观测", "sublabel": "轨迹 · 可靠性 · 成本 · SLO", "pos": [790, 650], "size": [205, 74]},
+    {"id": "safety", "type": "security", "label": "安全与治理", "sublabel": "权限 · 沙箱 · 身份 · 审批", "pos": [1065, 650], "size": [210, 74]}
+  ],
+  "boundaries": [
+    {"kind": "region", "label": "主阅读路径", "wraps": ["orientation", "foundations", "mechanics", "architectures", "production", "cases", "frontier"], "pad": 34},
+    {"kind": "security-group", "label": "横向保证层", "wraps": ["evidence", "labs", "evaluation", "safety"], "pad": 28}
+  ],
+  "connections": [
+    {"id": "start", "from": "reader", "to": "orientation", "label": "选择路线", "variant": "emphasis"},
+    {"id": "learn-origin", "from": "orientation", "to": "foundations", "label": "从哪里来", "variant": "emphasis"},
+    {"id": "learn-mechanics", "from": "foundations", "to": "mechanics", "label": "理解能力", "variant": "emphasis"},
+    {"id": "learn-architecture", "from": "mechanics", "to": "architectures", "label": "组合系统", "variant": "emphasis"},
+    {"id": "operate", "from": "architectures", "to": "production", "label": "进入生产", "variant": "emphasis", "fromSide": "bottom", "toSide": "top"},
+    {"id": "apply", "from": "production", "to": "cases", "label": "验证权衡", "variant": "emphasis"},
+    {"id": "project", "from": "cases", "to": "frontier", "label": "形成判断", "variant": "emphasis"},
+    {"id": "evidence-foundation", "from": "evidence", "to": "foundations", "label": "事实与引用", "variant": "dashed", "fromSide": "top", "toSide": "bottom"},
+    {"id": "labs-mechanics", "from": "labs", "to": "mechanics", "label": "可运行验证", "variant": "dashed", "fromSide": "top", "toSide": "bottom"},
+    {"id": "eval-cases", "from": "evaluation", "to": "cases", "label": "质量闭环", "variant": "dashed", "fromSide": "top", "toSide": "bottom"},
+    {"id": "safety-production", "from": "safety", "to": "production", "label": "最小权限", "variant": "security", "fromSide": "top", "toSide": "bottom"}
+  ],
+  "cards": [
+    {"dot": "cyan", "title": "Foundation 审核包", "items": ["完整样章：范式演化、工具与执行环境", "离线实验：可审计循环、安全工具网关", "同源输出：HTML 书站 + B5 PDF 样书"]},
+    {"dot": "emerald", "title": "全书完成门槛", "items": ["27 章 · 22–28 万中文字符 · 350–450 页", "45+ 编号图 · 30+ 表 · 12 个实验 · 4 个案例", "120+ 精选来源，趋势结论具备失效信号"]},
+    {"dot": "rose", "title": "工程原则", "items": ["模型负责语义不确定性，系统负责权限与终止", "同一套正文、契约和证据驱动知识站与专著", "只保存可审计事件，不要求或记录隐藏推理"]}
+  ]
+}

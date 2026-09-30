@@ -1,55 +1,43 @@
 #!/usr/bin/env python3
-import json
-from pathlib import Path
+from __future__ import annotations
 
+import re
 
-ROOT = Path(__file__).resolve().parents[1]
-CATALOG_SCHEMAS = {
-    "sources.yaml": "source.schema.json",
-    "claims.yaml": "claim.schema.json",
-    "timeline.yaml": "timeline.schema.json",
-    "glossary.yaml": "glossary.schema.json",
-    "technologies.yaml": "technology.schema.json",
-    "benchmarks.yaml": "benchmark.schema.json",
+from common import ROOT, load_json_yaml
+
+FILES = {
+    "sources": {"id", "title", "url", "publisher", "published", "accessed", "kind", "authority", "volatility", "tags"},
+    "claims": {"id", "claim", "claim_type", "source_ids", "confidence", "status", "as_of", "falsifiers"},
+    "glossary": {"term", "zh", "definition"},
+    "technologies": {"id", "name", "layer", "maturity", "version", "languages", "license", "deployment_model", "source_ids", "last_verified"},
+    "benchmarks": {"id", "name", "domain", "measures", "source_ids", "caveat"},
+    "patterns": {"id", "name", "problem", "forces", "solution", "consequences", "source_ids"},
+    "cases": {"id", "name", "scenario", "risk_tier", "inputs", "outputs", "acceptance", "source_ids"},
 }
 
 
-def load(name: str):
-    return json.loads((ROOT / "catalog" / name).read_text(encoding="utf-8"))
-
-
-def validate_required_fields(filename: str, data: object) -> None:
-    """Validate the repository's deliberately small JSON Schema subset offline."""
-    schema_name = CATALOG_SCHEMAS[filename]
-    schema = json.loads(
-        (ROOT / "catalog" / "schemas" / schema_name).read_text(encoding="utf-8")
-    )
-    assert schema.get("type") == "array", f"{schema_name}: root must be an array"
-    assert isinstance(data, list), f"{filename}: root must be an array"
-    required = schema.get("items", {}).get("required", [])
-    for index, item in enumerate(data):
-        assert isinstance(item, dict), f"{filename}[{index}]: item must be an object"
-        missing = [field for field in required if field not in item]
-        assert not missing, f"{filename}[{index}]: missing {missing}"
-
-
 def main() -> None:
-    catalogs = {filename: load(filename) for filename in CATALOG_SCHEMAS}
-    for filename, data in catalogs.items():
-        validate_required_fields(filename, data)
+    datasets = {name: load_json_yaml(ROOT / "catalog" / f"{name}.yaml") for name in FILES}
+    source_ids = {item["id"] for item in datasets["sources"]}
+    errors = []
+    for name, required in FILES.items():
+        seen = set()
+        for index, item in enumerate(datasets[name]):
+            missing = required - item.keys()
+            if missing: errors.append(f"{name}[{index}] missing {sorted(missing)}")
+            item_id = item.get("id", item.get("term"))
+            if not item_id or not re.fullmatch(r"[a-z0-9][a-z0-9-]*", item_id): errors.append(f"{name}[{index}] invalid id")
+            if item_id in seen: errors.append(f"{name}: duplicate id {item_id}")
+            seen.add(item_id)
+            for source_id in item.get("source_ids", []):
+                if source_id not in source_ids: errors.append(f"{name}:{item_id} unknown source {source_id}")
+    bib = (ROOT / "catalog/references.bib").read_text(encoding="utf-8")
+    for source_id in source_ids:
+        if not re.search(r"@[A-Za-z]+\{" + re.escape(source_id) + r",", bib): errors.append(f"missing BibTeX entry: {source_id}")
+    schemas = list((ROOT / "catalog/schemas").glob("*.json")) + list((ROOT / "labs/contracts").glob("*.json"))
+    for schema in schemas: load_json_yaml(schema)
+    if errors: raise SystemExit("catalog validation failed:\n- " + "\n- ".join(errors))
+    print(f"catalog ok: {len(source_ids)} sources, {sum(map(len, datasets.values()))} records, {len(schemas)} schemas")
 
-    sources = catalogs["sources.yaml"]
-    source_ids = [item["id"] for item in sources]
-    assert len(source_ids) == len(set(source_ids)), "duplicate source id"
-    known = set(source_ids)
-    for filename in ("claims.yaml", "timeline.yaml"):
-        for item in catalogs[filename]:
-            missing = set(item["source_ids"]) - known
-            assert not missing, f"{filename}: unknown sources {sorted(missing)}"
-    for item in catalogs["technologies.yaml"] + catalogs["benchmarks.yaml"]:
-        assert item["source_id"] in known, f"unknown source in {item['id']}"
-    print(f"catalog ok: {len(sources)} sources")
 
-
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()

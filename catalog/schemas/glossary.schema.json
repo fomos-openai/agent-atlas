@@ -1,1 +1,14 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"array","items":{"type":"object","required":["term","zh","definition"]}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["term", "zh", "definition"],
+    "properties": {
+      "term": {"type": "string"},
+      "zh": {"type": "string"},
+      "definition": {"type": "string", "minLength": 12}
+    },
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-atlas.dev/contracts/tool.schema.json",
+  "$defs": {
+    "toolSpec": {
+      "type": "object",
+      "required": ["name", "description", "input_schema", "side_effect"],
+      "properties": {
+        "name": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+        "description": {"type": "string", "minLength": 8},
+        "input_schema": {"type": "object"},
+        "side_effect": {"enum": ["read", "reversible_write", "external_commitment", "high_impact"]}
+      },
+      "additionalProperties": false
+    }
+  }
+}

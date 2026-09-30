@@ -1,5 +1,13 @@
-# 可审计事实层
+# Auditable evidence catalog
 
-`catalog/` 将来源与叙述分离：每个来源有稳定 ID，每条关键主张指向一个或多个来源。JSON Schema 检查字段形状，内容检查器继续验证 ID 唯一性、引用完整性和日期。
+The catalog is machine-readable JSON stored in `.yaml` files; JSON is a strict subset of YAML and keeps the default validation path dependency-free.
 
-证据等级：`primary` 表示论文、正式规范、官方文档或发布记录；`authoritative` 表示标准组织、安全组织或公共机构指南；`secondary` 仅用于生态信号，不能单独支撑关键事实。趋势条目额外记录 `confidence` 和 `falsifiers`，把预测与事实分开。
+- `sources.yaml`: one record per primary or authoritative source.
+- `claims.yaml`: atomic fact, inference or scenario records.
+- `technologies.yaml`: versioned technology radar entries.
+- `benchmarks.yaml`: benchmark intent and caveats, not leaderboard snapshots.
+- `patterns.yaml`: architecture patterns and their forces.
+- `cases.yaml`: case-study contracts and acceptance criteria.
+- `glossary.yaml`: Chinese terminology with canonical English names.
+
+Every manuscript citation uses a source id that is also present in `references.bib`. Source freshness is checked according to its volatility class.

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-atlas.dev/contracts/common.schema.json",
+  "$defs": {
+    "message": {
+      "type": "object",
+      "required": ["role", "content"],
+      "properties": {"role": {"enum": ["system", "user", "assistant", "tool"]}, "content": {"type": "string"}},
+      "additionalProperties": false
+    },
+    "toolCall": {
+      "type": "object",
+      "required": ["id", "tool_name", "arguments", "idempotency_key"],
+      "properties": {"id": {"type": "string"}, "tool_name": {"type": "string"}, "arguments": {"type": "object"}, "idempotency_key": {"type": "string"}},
+      "additionalProperties": false
+    }
+  }
+}

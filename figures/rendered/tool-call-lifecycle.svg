@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+<title id="title">工具调用生命周期</title><desc id="desc">审批、幂等和恢复都是运行状态的一部分</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071426"/><stop offset="1" stop-color="#13263b"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity=".22"/></filter></defs>
+<rect width="1200" height="680" rx="28" fill="url(#bg)"/>
+<text x="64" y="66" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#f8fafc">工具调用生命周期</text>
+<text x="64" y="100" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" fill="#94a3b8">审批、幂等和恢复都是运行状态的一部分</text>
+<g filter="url(#s)"><rect x="55" y="180" width="170" height="112" rx="16" fill="#10243a" stroke="#a78bfa" stroke-width="2"/>
+<rect x="55" y="180" width="8" height="112" rx="4" fill="#a78bfa"/>
+<text x="79" y="218" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">1  提议</text>
+<text x="79" y="248" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">结构化 ToolCall</text></g><g filter="url(#s)"><rect x="285" y="180" width="170" height="112" rx="16" fill="#10243a" stroke="#38bdf8" stroke-width="2"/>
+<rect x="285" y="180" width="8" height="112" rx="4" fill="#38bdf8"/>
+<text x="309" y="218" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">2  验证</text>
+<text x="309" y="248" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">schema + 业务语义</text></g><g filter="url(#s)"><rect x="515" y="180" width="170" height="112" rx="16" fill="#10243a" stroke="#fb7185" stroke-width="2"/>
+<rect x="515" y="180" width="8" height="112" rx="4" fill="#fb7185"/>
+<text x="539" y="218" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">3  策略</text>
+<text x="539" y="248" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">allow / deny / approval</text></g><g filter="url(#s)"><rect x="745" y="180" width="170" height="112" rx="16" fill="#10243a" stroke="#f59e0b" stroke-width="2"/>
+<rect x="745" y="180" width="8" height="112" rx="4" fill="#f59e0b"/>
+<text x="769" y="218" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">4  执行</text>
+<text x="769" y="248" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">幂等 + 超时 + 隔离</text></g><g filter="url(#s)"><rect x="975" y="180" width="170" height="112" rx="16" fill="#10243a" stroke="#34d399" stroke-width="2"/>
+<rect x="975" y="180" width="8" height="112" rx="4" fill="#34d399"/>
+<text x="999" y="218" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">5  提交</text>
+<text x="999" y="248" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">结果 + 状态 + 事件</text></g><path d="M225 236 L271 236" stroke="#60a5fa" stroke-width="3" fill="none"/><path d="M265 228 L285 236 L265 244" fill="none" stroke="#60a5fa" stroke-width="3"/>
+<text x="255" y="224" text-anchor="middle" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#93c5fd"></text><path d="M455 236 L501 236" stroke="#60a5fa" stroke-width="3" fill="none"/><path d="M495 228 L515 236 L495 244" fill="none" stroke="#60a5fa" stroke-width="3"/>
+<text x="485" y="224" text-anchor="middle" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#93c5fd"></text><path d="M685 236 L731 236" stroke="#60a5fa" stroke-width="3" fill="none"/><path d="M725 228 L745 236 L725 244" fill="none" stroke="#60a5fa" stroke-width="3"/>
+<text x="715" y="224" text-anchor="middle" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#93c5fd"></text><path d="M915 236 L961 236" stroke="#60a5fa" stroke-width="3" fill="none"/><path d="M955 228 L975 236 L955 244" fill="none" stroke="#60a5fa" stroke-width="3"/>
+<text x="945" y="224" text-anchor="middle" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#93c5fd"></text><g filter="url(#s)"><rect x="455" y="410" width="290" height="105" rx="16" fill="#10243a" stroke="#fb7185" stroke-width="2"/>
+<rect x="455" y="410" width="8" height="105" rx="4" fill="#fb7185"/>
+<text x="479" y="448" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">WAITING_APPROVAL</text>
+<text x="479" y="478" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#cbd5e1">持久化调用参数与策略版本</text></g><path d="M600 292 V410" stroke="#fb7185" stroke-width="3"/><path d="M600 410 L590 392 M600 410 L610 392" stroke="#fb7185" stroke-width="3"/><path d="M745 463 H850 Q890 463 890 420 V300" stroke="#60a5fa" stroke-width="3" fill="none" stroke-dasharray="8 6"/><text x="790" y="448" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#93c5fd">批准后恢复原调用</text><text x="600" y="600" text-anchor="middle" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" fill="#cbd5e1">失败不是一段异常文本，而是可恢复状态机中的显式分支</text>
+<text x="1136" y="652" text-anchor="end" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#64748b">Agent Atlas · 2026-10-01</text>
+</svg>

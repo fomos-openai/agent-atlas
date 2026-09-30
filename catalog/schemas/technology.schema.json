@@ -1,1 +1,21 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"array","items":{"type":"object","required":["id","category","name","maturity","license","source_id"]}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "layer", "maturity", "version", "languages", "license", "deployment_model", "source_ids", "last_verified"],
+    "properties": {
+      "id": {"type": "string"},
+      "name": {"type": "string"},
+      "layer": {"type": "string"},
+      "maturity": {"enum": ["production", "evolving", "experimental", "deprecated"]},
+      "version": {"type": "string"},
+      "languages": {"type": "array", "items": {"type": "string"}},
+      "license": {"type": "string"},
+      "deployment_model": {"type": "string"},
+      "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+      "last_verified": {"type": "string", "format": "date"}
+    },
+    "additionalProperties": false
+  }
+}
